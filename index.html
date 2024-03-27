@@ -7,6 +7,8 @@
 
     <link href="./css/style.css" rel="stylesheet" type="text/css"/>
     <link href="./css/output.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 
 <body>
@@ -72,7 +74,7 @@
                 </div>
 
                 <div class="mt-[50px]">
-                    <img class="h-[575px] w-full rounded-tl-[33px] rounded-tr-[33px] object-cover" src="./assets/img/store-1.jpg" />
+                    <img class="h-[575px] w-full rounded-tl-[33px] rounded-tr-[33px] object-cover" src="./assets/img/store/store-1.jpg" />
                 </div>
             </div>
         </section>
@@ -146,10 +148,137 @@
                 </div>
             </div>
         </section>
+
+        <section id="bestsellers">
+            <div class="w-[89.5%] mx-auto h-[786px] pt-[100px] pb-[100px] flex flex-row justify-between">
+                <div class="w-[33%] flex flex-col gap-[30px]">
+                    <span class="capitalize text-7xl font-bold text-[var(--main-white)] tracking-wide">бестселлеры 2024</span>
+                    <span class="text-[1.4rem] font-normal text-[var(--main-white)] tracking-wide leading-7">
+                        Познакомтесь с невероятным магазином книг, обладающим не только неплохим 
+                        ассортиментом, но и, что самое важное, душой!
+                        Познакомтесь с невероятным магазином книг, обладающим не только неплохим 
+                        ассортиментом, но и, что самое важное, душой!
+                        аувыпа
+                    </span>
+                </div>
+
+                <div class="w-[63.5%] relative">
+                    <div class="absolute size-[73px] bg-[var(--main-dark-brown)] rounded-full -right-[3.5%] top-[50%] z-10 cursor-pointer">
+                        <svg width="70px" height="70px" viewBox="0 0 24 24" fill="#FAFAFA" xmlns="http://www.w3.org/2000/svg"><path d="M16.646 15.646L19.293 13H3v-1h16.293l-2.647-2.646.707-.707 3.854 3.853-3.854 3.854z"/><path fill="none" d="M0 0h24v24H0z"/></svg>
+                    </div>
+
+                    <!-- Slider main container -->
+                    <div class="swiper bestsellerSwiper size-full">
+                        <div class="swiper-wrapper ">
+                            <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px] flex flex-col gap-[40px]">
+                                <div class="flex justify-center">
+                                    <img src="./assets/img/books/dorian_gray.jpg" class="object-cover h-[252px] w-[160px]" />
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <span class="block text-xl font-bold text-[var(--main-black)]">Портрет Дориана Грея</span>
+                                    <span class="block text-xl font-normal text-[var(--main-black)]">Оскар Уайлд</span>
+                                    </div>
+                                    <div class="mt-[25px]">
+                                        <span class="block text-xl font-bold text-[var(--main-black)] text-end">1200 ₽</span>
+                                    </div>
+                                </div>
+
+                                <div class="w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                    <span class="capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">купить</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px] flex flex-col">
+                                <div class="flex justify-center">
+                                    <img src="./assets/img/books/sherlock_holmes.jpg" class="object-cover h-[252px] w-[160px]" />
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <span class="block text-xl font-bold text-[var(--main-black)]">Приключения Шерлока Холмса</span>
+                                    <span class="block text-xl font-normal text-[var(--main-black)]">Артур Конан Дойль</span>
+                                    </div>
+                                    <div class="mt-[25px]">
+                                        <span class="block text-xl font-bold text-[var(--main-black)] text-end">1500 ₽</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-[50px] w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                    <span class="capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">купить</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px] flex flex-col">
+                                <div class="flex justify-center">
+                                    <img src="./assets/img/books/1984.jpg" class="object-cover h-[252px] w-[160px]" />
+                                </div>
+
+                                <div class="mt-[40px]">
+                                    <div>
+                                        <span class="block text-xl font-bold text-[var(--main-black)]">1984</span>
+                                    <span class="block text-xl font-normal text-[var(--main-black)]">Джордж Оруэлл</span>
+                                    </div>
+                                    <div class="mt-[25px]">
+                                        <span class="block text-xl font-bold text-[var(--main-black)] text-end">900 ₽</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-[50px] w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                    <span class="capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">купить</span>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px] flex flex-col">
+                                <div class="flex justify-center">
+                                    <img src="./assets/img/books/dorian_gray.jpg" class="object-cover h-[252px] w-[160px]" />
+                                </div>
+
+                                <div class="mt-[40px]">
+                                    <div>
+                                        <span class="block text-xl font-bold text-[var(--main-black)]">Портрет Дориана Грея</span>
+                                    <span class="block text-xl font-normal text-[var(--main-black)]">Оскар Уайлд</span>
+                                    </div>
+                                    <div class="mt-[25px]">
+                                        <span class="block text-xl font-bold text-[var(--main-black)] text-end">1200 ₽</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-[50px] w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                    <span class="capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">купить</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reasons">
+            <div class="mx-auto h-[1171px] bg-[var(--main-white)]">
+                <div class="w-[89.5%]">
+                    
+                </div>
+            </div>
+        </section>
+
+        <section id="comment">
+            <div class="mx-auto h-[612px] bg-[var(--main-white)]">
+                <div class="w-[89.5%]">
+                    
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
+        <div class="w-[89.5%] mx-auto h-[430px]">
 
+        </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/swiper.js"></script>
 </body>
 </html>

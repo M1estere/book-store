@@ -19,7 +19,6 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     position: relative;
-    background-color: var(--main-black-color);
     z-index: 0;
     max-width: 2100px;
     margin: 0 auto;
