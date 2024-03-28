@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile</title>
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/output.css" rel="stylesheet" type="text/css">
+    <link href="./css/profile.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+
+<body>
+    <header class="h-[150px] w-full flex flex-col items-center">
+        <div class="h-[40px] bg-[var(--main-yellow)] w-full">
+
+        </div>
+
+        <div class="w-[89.5%] h-[110px] flex flex-row justify-between items-center gap-[180px] border-b-2 border-[var(--main-white)]">
+            <div class="flex-1">
+                <span class="uppercase text-4xl font-bold text-[var(--main-white)] cursor-pointer">book buyer dude</span>
+            </div>
+
+            <div class="flex flex-row gap-[30px]">
+                <span class="capitalize text-4xl font-normal text-[var(--main-white)] cursor-pointer">главная</span>
+                <span class="capitalize text-4xl font-normal text-[var(--main-white)] cursor-pointer">книги</span>
+                <span class="capitalize text-4xl font-normal text-[var(--main-white)] cursor-pointer">о нас</span>
+            </div>
+
+            <div class="flex flex-row gap-[10px]">
+                <svg fill="#FAFAFA" height="55px" width="55px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    viewBox="0 0 483.1 483.1" xml:space="preserve">
+                    <g>
+                        <path d="M434.55,418.7l-27.8-313.3c-0.5-6.2-5.7-10.9-12-10.9h-58.6c-0.1-52.1-42.5-94.5-94.6-94.5s-94.5,42.4-94.6,94.5h-58.6
+                            c-6.2,0-11.4,4.7-12,10.9l-27.8,313.3c0,0.4,0,0.7,0,1.1c0,34.9,32.1,63.3,71.5,63.3h243c39.4,0,71.5-28.4,71.5-63.3
+                            C434.55,419.4,434.55,419.1,434.55,418.7z M241.55,24c38.9,0,70.5,31.6,70.6,70.5h-141.2C171.05,55.6,202.65,24,241.55,24z
+                            M363.05,459h-243c-26,0-47.2-17.3-47.5-38.8l26.8-301.7h47.6v42.1c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h141.2v42.1
+                            c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h47.6l26.8,301.8C410.25,441.7,389.05,459,363.05,459z"/>
+                    </g>
+                </svg>
+
+                <svg width="60px" height="60px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="#FAFAFA" fill="none">
+                    <circle cx="32" cy="18.14" r="11.14"/><path d="M54.55,56.85A22.55,22.55,0,0,0,32,34.3h0A22.55,22.55,0,0,0,9.45,56.85Z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="general" class="pt-[65px] mb-[100px]">
+            <div class="w-[74.5%] mx-auto">
+                <div class="flex flex-row gap-[20px] items-center mb-[50px]">
+                    <span id="profile-button" class="uppercase text-[var(--main-dark-grey)] text-[32px] font-bold cursor-pointer">профиль</span>
+                    <!-- <span class="uppercase text-[var(--main-dark-grey)] text-[32px] font-bold cursor-pointer">личные данные</span> -->
+                    <span id="orders-button" class="uppercase text-[var(--main-dark-grey)] text-[32px] font-bold cursor-pointer ">заказы</span>
+                </div>
+
+                <div id="profile-section">
+                    <div>
+                        <span class="capitalize text-[28px] font-bold text-[var(--main-white)]">Данные</span>
+                    </div>
+
+                    <div class="flex flex-col gap-[30px] mt-[15px]">
+                        <div class="flex flex-col gap-[5px]">
+                            <span class="capitalize font-bold text-2xl text-[var(--main-white)] tracking-wide">Соловьев Илья Александрович</span>
+                            <span class="font-normal text-xl text-[var(--main-white)] tracking-wide">8 (905) 715-66-43 | 7156643@gmail.com</span>
+                        </div>
+    
+                        <div class="flex flex-col gap-[5px]">
+                            <span class="capitalize font-bold text-2xl text-[var(--main-white)] tracking-wide">Активные Заказы</span>
+                            <span class="font-normal text-xl text-[var(--main-white)] tracking-wide">У вас пока нет активных заказов</span>
+                        </div>
+
+                        <div class="flex flex-col gap-[5px]">
+                            <span class="capitalize font-bold text-2xl text-[var(--main-white)] tracking-wide">Бонусная Карта</span>
+                            <span class="font-normal text-xl text-[var(--main-white)] tracking-wide">Вы пока не оформили бонусную карту</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="orders-section" class="hidden">
+                    <div class="flex flex-col gap-[30px] w-[51%]">
+                        <div class="w-full bg-[var(--main-white)] rounded-[15px] h-[280px] flex flex-col justify-between p-[25px]">
+                            <div class="flex flex-row justify-between">
+                                <div class="flex flex-col gap-[12px]">
+                                    <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide">Заказ №1 от 11.01.2023</span>
+                                    <div class="flex flex-col">
+                                        <span class="font-normal text-[var(--main-black)] text-[16px]">Оплата картой на сайте | Самовывоз</span>
+                                        <span class="font-normal text-[var(--main-black)] text-[16px]">ул. Кировоградская, д. 13А, ТРЦ "Колумбус", 3 Этаж</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col justify-between items-end h-[90px]">
+                                    <div class="size-[25px] bg-green-600 rounded-full"></div>
+                                    <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide">2500 ₽</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="swiper mainSwiper size-full">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide max-w-[70px] max-h-[110px]">
+                                            <img src="./assets/img/books/1984.jpg" class="size-full object-cover" />
+                                        </div>
+
+                                        <div class="swiper-slide max-w-[70px] max-h-[110px]">
+                                            <img src="./assets/img/books/dorian_gray.jpg" class="size-full object-cover" />
+                                        </div>
+
+                                        <div class="swiper-slide max-w-[70px] max-h-[110px]">
+                                            <img src="./assets/img/books/sherlock_holmes.jpg" class="size-full object-cover" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[var(--main-white)]">
+        <div class="w-[89.5%] mx-auto h-[360px] pt-[50px]">
+            <div>
+                <span class="text-[var(--main-black)] uppercase text-[32px] text-start font-bold">book buyer dude</span>
+            </div>
+
+            <div class="flex flex-row justify-between mt-[50px] text-[var(--main-black)] font-normal tracking-normal">
+                <div class="flex flex-col text-2xl gap-[7px]">
+                    <span>Москва</span>
+                    <span>пр. Вернадского, 78</span>
+                    <span>Россия</span>
+                    <span>8 (905) 715-66-43</span>
+                </div>
+
+                <div class="flex flex-col text-2xl gap-[7px]">
+                    <span>Оплата</span>
+                    <span>Доставка</span>
+                </div>
+
+                <div class="flex flex-col text-2xl gap-[7px]">
+                    <span>О нас</span>
+                    <span>Оферта</span>
+                </div>
+
+                <div class="flex flex-col text-2xl gap-[7px]">
+                    <span>Личный кабинет</span>
+                    <span>История покупок</span>
+                </div>
+            </div>
+        </div>
+
+        <hr class="w-full border-[1px] border-[var(--main-black)]" />
+
+        <div class="flex justify-center items-center h-[70px]">
+            <span class="text-[var(--main-black)] font-normal text-2xl">© Лучший книжный 2024</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/profile_switch.js"></script>
+</body>
+</html>
