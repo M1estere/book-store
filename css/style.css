@@ -3,11 +3,14 @@
 @tailwind utilities;
 
 :root {
-    --main-yellow: #DDA15E;
     --main-black: #1E1E1E;
     --main-white: #FAFAFA;
+
+    --main-yellow: #DDA15E;
     --main-dark-brown: #99582A;
+    
     --main-grey: #CDCDCD;
+    --main-dark-grey: #363636;
 }
 
 * {
