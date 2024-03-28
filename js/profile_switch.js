@@ -1,4 +1,4 @@
-window.onload = (event) => {
+window.onload = () => {
     const profileSection = document.getElementById('profile-section');
     const ordersSection = document.getElementById('orders-section');
 

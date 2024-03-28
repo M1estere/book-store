@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Authentication</title>
+
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link href="./css/output.css" rel="stylesheet" type="text/css">
+    <link href="./css/auth.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header class="h-fit w-full flex flex-col items-center">
+        <div class="h-[40px] bg-[var(--main-yellow)] w-full">
+        </div>
+    </header>
+
+    <main>
+        <section id="general" class="mt-[90px]">
+            <div class="w-[80%] mx-auto flex flex-row justify-between">
+                <div class="flex flex-col gap-[50px] w-[34%]">
+                    <span class="text-[var(--main-white)] font-bold text-5xl tracking-wide">Добро пожаловать</span>
+                    <span class="text-[var(--main-white)] font-normal text-xl tracking-wide leading-7">
+                        Познакомтесь с невероятным магазином книг, 
+                        обладающим не только неплохим ассортиментом, но и, 
+                        что самое важное, душой!
+                        Познакомтесь с невероятным магазином книг, 
+                        обладающим не только неплохим ассортиментом, но и, 
+                        что самое важное, душой!
+                        аувыпа
+                    </span>
+                </div>
+
+                <div class="h-[600px] w-[38%] bg-[var(--main-white)] rounded-[10px] py-[60px] px-[50px]">
+                    <div class="flex flex-col justify-between h-full">
+                        <div class="flex flex-row justify-between h-[50px]">
+                            <div id="login-button" class="w-[48%] h-full border-b-2 border-[var(--main-dark-grey)] flex justify-center items-center pb-[5px] cursor-pointer">
+                                <span class="font-bold text-4xl text-[var(--main-black)] tracking-wide capitalize">Вход</span>
+                            </div>
+    
+                            <div id="registration-button" class="w-[48%] h-full border-b-2 border-[var(--main-dark-grey)] flex justify-center items-center pb-[5px] cursor-pointer">
+                                <span class="font-bold text-4xl text-[var(--main-black)] tracking-wide capitalize">Регистрация</span>
+                            </div>
+                        </div>
+    
+                        <div id="registration-form" class="mt-[50px] flex-grow">
+                            <form action="/" class="h-full">
+                                <div class="flex flex-col h-full justify-between items-end">
+                                    <div class="flex flex-col gap-[10px] w-full">
+                                        <div class="flex flex-row justify-between items-center">
+                                            <svg width="54px" height="54px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 8L8.44992 11.6333C9.73295 12.4886 10.3745 12.9163 11.0678 13.0825C11.6806 13.2293 12.3194 13.2293 12.9322 13.0825C13.6255 12.9163 14.2671 12.4886 15.5501 11.6333L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+            
+                                            <input class="w-[85%] h-[65px] placeholder-[var(--main-grey)] text-2xl px-[25px] bg-[var(--main-black)] text-[var(--main-white)] rounded-[15px] focus:outline-none" type="text" placeholder="Почта..." name="user_email" required />
+                                        </div>
+
+                                        <div class="flex flex-row justify-between items-center">
+                                            <svg fill="#1E1E1E" width="54px" height="54px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                                <title>profile</title>
+                                                <path d="M28 9h-1.958v-2.938l-4.042-0.062 0.021 3h-12.146l0.083-3-3.958 0.062v3l-2-0.062c-1.104 0-2 0.896-2 2v14c0 1.104 0.896 2 2 2h24c1.104 0 2-0.896 2-2v-14c0-1.104-0.896-2-2-2zM23 7h2v4h-2v-4zM10 13.812c1.208 0 2.188 1.287 2.188 2.875s-0.98 2.875-2.188 2.875-2.188-1.287-2.188-2.875 0.98-2.875 2.188-2.875zM7 7h2v4h-2v-4zM5.667 22.948c0 0 0.237-1.902 0.776-2.261s2.090-0.598 2.090-0.598 1.006 1.075 1.434 1.075c0.427 0 1.433-1.075 1.433-1.075s1.552 0.238 2.091 0.598c0.633 0.422 0.791 2.261 0.791 2.261h-8.615zM26 22h-9v-1h9v1zM26 20h-9v-1h9v1zM26 18h-9v-1h9v1zM26 16h-9v-1h9v1z"></path>
+                                            </svg>
+            
+                                            <input class="w-[85%] h-[65px] placeholder-[var(--main-grey)] text-2xl px-[25px] bg-[var(--main-black)] text-[var(--main-white)] rounded-[15px] focus:outline-none" type="text" placeholder="ФИО..." name="user_creds" required />
+                                        </div>
+
+                                        <div class="flex flex-row justify-between items-center">
+                                            <svg width="54px" height="54px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" fill="#1E1E1E"/>
+                                            </svg>
+            
+                                            <input class="w-[85%] h-[65px] placeholder-[var(--main-grey)] text-2xl px-[25px] bg-[var(--main-black)] text-[var(--main-white)] rounded-[15px] focus:outline-none" type="password" placeholder="Номер телефона..." name="user_phone" required />
+                                        </div>
+
+                                        <div class="flex flex-row justify-between items-center">
+                                            <svg width="54px" height="54px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.29344C22 11.7692 19.1708 14.5869 15.6807 14.5869C15.0439 14.5869 13.5939 14.4405 12.8885 13.8551L12.0067 14.7333C11.4883 15.2496 11.6283 15.4016 11.8589 15.652C11.9551 15.7565 12.0672 15.8781 12.1537 16.0505C12.1537 16.0505 12.8885 17.075 12.1537 18.0995C11.7128 18.6849 10.4783 19.5045 9.06754 18.0995L8.77362 18.3922C8.77362 18.3922 9.65538 19.4167 8.92058 20.4412C8.4797 21.0267 7.30403 21.6121 6.27531 20.5876L5.2466 21.6121C4.54119 22.3146 3.67905 21.9048 3.33616 21.6121L2.45441 20.7339C1.63143 19.9143 2.1115 19.0264 2.45441 18.6849L10.0963 11.0743C10.0963 11.0743 9.3615 9.90338 9.3615 8.29344C9.3615 4.81767 12.1907 2 15.6807 2C19.1708 2 22 4.81767 22 8.29344ZM15.681 10.4889C16.8984 10.4889 17.8853 9.50601 17.8853 8.29353C17.8853 7.08105 16.8984 6.09814 15.681 6.09814C14.4635 6.09814 13.4766 7.08105 13.4766 8.29353C13.4766 9.50601 14.4635 10.4889 15.681 10.4889Z" fill="#1E1E1E"/>
+                                            </svg>
+            
+                                            <input class="w-[85%] h-[65px] placeholder-[var(--main-grey)] text-2xl px-[25px] bg-[var(--main-black)] text-[var(--main-white)] rounded-[15px] focus:outline-none" type="password" placeholder="Пароль..." name="user_password" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="px-[30px] h-[55px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                        <span class="capitalize text-[32px] font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">регистрация</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="login-form" class="hidden mt-[50px] flex-grow">
+                            <form action="/" class="h-full">
+                                <div class="flex flex-col h-full justify-between items-end">
+                                    <div class="flex flex-col gap-[10px] w-full">
+                                        <div class="flex flex-row justify-between items-center">
+                                            <svg width="54px" height="54px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M3 8L8.44992 11.6333C9.73295 12.4886 10.3745 12.9163 11.0678 13.0825C11.6806 13.2293 12.3194 13.2293 12.9322 13.0825C13.6255 12.9163 14.2671 12.4886 15.5501 11.6333L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+            
+                                            <input class="w-[85%] h-[65px] placeholder-[var(--main-grey)] text-2xl px-[25px] bg-[var(--main-black)] text-[var(--main-white)] rounded-[15px] focus:outline-none" type="text" placeholder="Почта..." name="user_email" required />
+                                        </div>
+            
+                                        <div class="flex flex-row justify-between items-center">
+                                            <svg width="54px" height="54px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22 8.29344C22 11.7692 19.1708 14.5869 15.6807 14.5869C15.0439 14.5869 13.5939 14.4405 12.8885 13.8551L12.0067 14.7333C11.4883 15.2496 11.6283 15.4016 11.8589 15.652C11.9551 15.7565 12.0672 15.8781 12.1537 16.0505C12.1537 16.0505 12.8885 17.075 12.1537 18.0995C11.7128 18.6849 10.4783 19.5045 9.06754 18.0995L8.77362 18.3922C8.77362 18.3922 9.65538 19.4167 8.92058 20.4412C8.4797 21.0267 7.30403 21.6121 6.27531 20.5876L5.2466 21.6121C4.54119 22.3146 3.67905 21.9048 3.33616 21.6121L2.45441 20.7339C1.63143 19.9143 2.1115 19.0264 2.45441 18.6849L10.0963 11.0743C10.0963 11.0743 9.3615 9.90338 9.3615 8.29344C9.3615 4.81767 12.1907 2 15.6807 2C19.1708 2 22 4.81767 22 8.29344ZM15.681 10.4889C16.8984 10.4889 17.8853 9.50601 17.8853 8.29353C17.8853 7.08105 16.8984 6.09814 15.681 6.09814C14.4635 6.09814 13.4766 7.08105 13.4766 8.29353C13.4766 9.50601 14.4635 10.4889 15.681 10.4889Z" fill="#1E1E1E"/>
+                                                </svg>
+            
+                                            <input class="w-[85%] h-[65px] placeholder-[var(--main-grey)] text-2xl px-[25px] bg-[var(--main-black)] text-[var(--main-white)] rounded-[15px] focus:outline-none" type="password" placeholder="Пароль..." name="user_password" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="px-[30px] h-[55px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                        <span class="capitalize text-[32px] font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">войти</span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./js/auth_type_switch.js"></script>
+</body>
+</html>
