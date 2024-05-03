@@ -5,47 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
 
-    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
-    <link href="./css/output.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/output.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 
 <body>
-    <header class="h-[150px] w-full flex flex-col items-center">
-        <div class="h-[40px] bg-[var(--main-yellow)] w-full">
-
-        </div>
-
-        <div class="w-[89.5%] h-[110px] flex flex-row justify-between items-center gap-[180px] border-b-2 border-[var(--main-white)]">
-            <div class="flex-1">
-                <span class="uppercase text-4xl font-bold text-[var(--main-white)] cursor-pointer">book buyer dude</span>
-            </div>
-
-            <div class="flex flex-row gap-[30px]">
-                <span class="capitalize text-4xl font-normal text-[var(--main-white)] cursor-pointer">главная</span>
-                <span class="capitalize text-4xl font-normal text-[var(--main-white)] cursor-pointer">книги</span>
-                <span class="capitalize text-4xl font-normal text-[var(--main-white)] cursor-pointer">о нас</span>
-            </div>
-
-            <div class="flex flex-row gap-[10px]">
-                <svg fill="#FAFAFA" height="55px" width="55px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                    viewBox="0 0 483.1 483.1" xml:space="preserve">
-                    <g>
-                        <path d="M434.55,418.7l-27.8-313.3c-0.5-6.2-5.7-10.9-12-10.9h-58.6c-0.1-52.1-42.5-94.5-94.6-94.5s-94.5,42.4-94.6,94.5h-58.6
-                            c-6.2,0-11.4,4.7-12,10.9l-27.8,313.3c0,0.4,0,0.7,0,1.1c0,34.9,32.1,63.3,71.5,63.3h243c39.4,0,71.5-28.4,71.5-63.3
-                            C434.55,419.4,434.55,419.1,434.55,418.7z M241.55,24c38.9,0,70.5,31.6,70.6,70.5h-141.2C171.05,55.6,202.65,24,241.55,24z
-                            M363.05,459h-243c-26,0-47.2-17.3-47.5-38.8l26.8-301.7h47.6v42.1c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h141.2v42.1
-                            c0,6.6,5.4,12,12,12s12-5.4,12-12v-42.1h47.6l26.8,301.8C410.25,441.7,389.05,459,363.05,459z"/>
-                    </g>
-                </svg>
-
-                <svg width="60px" height="60px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="#FAFAFA" fill="none">
-                    <circle cx="32" cy="18.14" r="11.14"/><path d="M54.55,56.85A22.55,22.55,0,0,0,32,34.3h0A22.55,22.55,0,0,0,9.45,56.85Z"/>
-                </svg>
-            </div>
-        </div>
-    </header>
+    <%- include('../common/_header.ejs') %>
 
     <main>
         <section id="intro-section" class="mt-[60px]">
@@ -74,7 +41,7 @@
                 </div>
 
                 <div class="mt-[50px]">
-                    <img class="h-[575px] w-full rounded-tl-[33px] rounded-tr-[33px] object-cover" src="./assets/img/store/store-1.jpg" />
+                    <img class="h-[575px] w-full rounded-tl-[33px] rounded-tr-[33px] object-cover" src="/public/img/store/store-1.jpg" />
                 </div>
             </div>
         </section>
@@ -173,7 +140,7 @@
                             <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px]">
                                 <div class="size-full flex flex-col justify-between">
                                      <div class="flex justify-center">
-                                         <img src="./assets/img/books/dorian_gray.jpg" class="object-cover h-[252px] w-[160px]" />
+                                         <img src="/public/img/books/dorian_gray.jpg" class="object-cover h-[252px] w-[160px]" />
                                      </div>
                              
                                      <div>
@@ -196,7 +163,7 @@
                             <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px]">
                                 <div class="size-full flex flex-col justify-between">
                                      <div class="flex justify-center">
-                                         <img src="./assets/img/books/sherlock_holmes.jpg" class="object-cover h-[252px] w-[160px]" />
+                                         <img src="/public/img/books/sherlock_holmes.jpg" class="object-cover h-[252px] w-[160px]" />
                                      </div>
                              
                                      <div>
@@ -219,7 +186,7 @@
                             <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px]">
                                 <div class="size-full flex flex-col justify-between">
                                      <div class="flex justify-center">
-                                         <img src="./assets/img/books/1984.jpg" class="object-cover h-[252px] w-[160px]" />
+                                         <img src="/public/img/books/1984.jpg" class="object-cover h-[252px] w-[160px]" />
                                      </div>
                              
                                      <div>
@@ -242,7 +209,7 @@
                             <div class="swiper-slide bg-[var(--main-white)] h-full max-w-[360px] rounded-[30px] p-[40px]">
                                 <div class="size-full flex flex-col justify-between">
                                      <div class="flex justify-center">
-                                         <img src="./assets/img/books/dorian_gray.jpg" class="object-cover h-[252px] w-[160px]" />
+                                         <img src="/public/img/books/dorian_gray.jpg" class="object-cover h-[252px] w-[160px]" />
                                      </div>
                              
                                      <div>
@@ -271,7 +238,7 @@
             <div class="h-fit bg-[var(--main-white)] pt-[100px]">
                 <div class="w-[89.5%] mx-auto flex flex-row justify-between">
                     <div class="w-[45%] h-[512px]">
-                        <img src="./assets/img/store/store-2.jpg" class="object-cover size-full rounded-[45px]" />
+                        <img src="/public/img/store/store-2.jpg" class="object-cover size-full rounded-[45px]" />
                     </div>
 
                     <div class="w-[44%] h-[512px] flex flex-col gap-[30px]">
@@ -301,7 +268,7 @@
                     </div>
 
                     <div class="w-[66%] h-[512px]">
-                        <img src="./assets/img/store/store-3.jpg" class="object-cover size-full rounded-[45px]" />
+                        <img src="/public/img/store/store-3.jpg" class="object-cover size-full rounded-[45px]" />
                     </div>
                 </div>
             </div>
@@ -311,7 +278,7 @@
             <div class="h-[712px] bg-[var(--main-white)] pt-[100px] pb-[100px]">
                 <div class="w-[89.5%] mx-auto flex flex-row justify-between">
                     <div class="w-[50%] h-[512px] relative">
-                        <img src="./assets/img/store/store-4.jpg" class="absolute top-0 right-0 rounded-[45px] size-full object-cover brightness-50" />
+                        <img src="/public/img/store/store-4.jpg" class="absolute top-0 right-0 rounded-[45px] size-full object-cover brightness-50" />
 
                         <div class="size-full absolute top-0 right-0 rounded-[45px] p-[40px]">
                             <form action="#" method="post" class="size-full">
@@ -342,46 +309,10 @@
         </section>
     </main>
 
-    <footer class="bg-[var(--main-black)]">
-        <div class="w-[89.5%] mx-auto h-[360px] pt-[50px]">
-            <div>
-                <span class="text-[var(--main-white)] uppercase text-[32px] text-start font-bold">book buyer dude</span>
-            </div>
-
-            <div class="flex flex-row justify-between mt-[50px] text-[var(--main-white)] font-normal tracking-normal">
-                <div class="flex flex-col text-2xl gap-[7px]">
-                    <span>Москва</span>
-                    <span>пр. Вернадского, 78</span>
-                    <span>Россия</span>
-                    <span>8 (905) 715-66-43</span>
-                </div>
-
-                <div class="flex flex-col text-2xl gap-[7px]">
-                    <span>Оплата</span>
-                    <span>Доставка</span>
-                </div>
-
-                <div class="flex flex-col text-2xl gap-[7px]">
-                    <span>О нас</span>
-                    <span>Оферта</span>
-                </div>
-
-                <div class="flex flex-col text-2xl gap-[7px]">
-                    <span>Личный кабинет</span>
-                    <span>История покупок</span>
-                </div>
-            </div>
-        </div>
-
-        <hr class="w-full border-[1px] border-[var(--main-white)]" />
-
-        <div class="flex justify-center items-center h-[70px]">
-            <span class="text-[var(--main-white)] font-normal text-2xl">© Лучший книжный 2024</span>
-        </div>
-    </footer>
+    <%- include('../common/_footer.ejs') %>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./js/swiper.js"></script>
+    <script src="/public/js/swiper.js"></script>
 </body>
 
 </html>

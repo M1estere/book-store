@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us</title>
+
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/output.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%- include('../common/_header.ejs') %>
+
+    <main>
+        <section id="intro" class="pt-[65px] mb-[100px]">
+            <div class="w-[74.5%] mx-auto">
+                <span class="uppercase text-[var(--main-white)] text-[32px] font-bold">о нас</span>
+            
+                <div class="h-[575px] flex flex-row justify-between mt-[25px]">
+                    <div class="w-[30%] h-full flex flex-col justify-center items-start gap-[15px]">
+                        <span class="font-bold text-[32px] text-[var(--main-white)] tracking-wide">2014 - Открытие</span>
+                        <span class="font-normal text-xl text-[var(--main-white)] tracking-wide">
+                            Мы открылись блин в 1534 году в Германии, 
+                            как первый книжный магазин. Помимо продажи книг мы 
+                            так же часто проводили время с 
+                            клиентами за обсуждениями различных произведений
+                        </span>
+                    </div>
+
+                    <div class="w-[59%] h-full">
+                        <img src="/public/img/store/store-5.jpg" class="size-full object-cover rounded-[20px]" />
+                    </div>
+                </div>
+
+                <div class="h-[575px] flex flex-row justify-between mt-[75px]">
+                    <div class="w-[59%] h-full">
+                        <img src="/public/img/store/store-6.jpg" class="size-full object-cover rounded-[20px]" />
+                    </div>
+
+                    <div class="w-[30%] h-full flex flex-col justify-center items-start gap-[15px]">
+                        <span class="font-bold text-[32px] text-[var(--main-white)] tracking-wide">2015 - Закрытие</span>
+                        <span class="font-normal text-xl text-[var(--main-white)] tracking-wide">
+                            Мы открылись блин в 1534 году в Германии, 
+                            как первый книжный магазин. Помимо продажи книг мы 
+                            так же часто проводили время с 
+                            клиентами за обсуждениями различных произведений
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="current" class="h-[720px] bg-[var(--main-white)] py-[100px]">
+            <div class="w-[74.5%] h-full mx-auto">
+                <div class="h-full flex flex-row justify-between">
+                    <div class="w-[50%] h-full flex flex-col justify-center items-start gap-[15px]">
+                        <span class="font-bold text-[32px] text-[var(--main-black)] tracking-wide">Настоящее время</span>
+                        <span class="font-normal text-xl text-[var(--main-black)] tracking-wide">
+                            Познакомтесь с невероятным магазином книг, обладающим не
+                            только неплохим ассортиментом, но и, что самое важное, душой!
+                            Познакомтесь с невероятным магазином книг, обладающим не 
+                        </span>
+                    </div>
+
+                    <div class="w-[40%] h-full">
+                        <img src="/public/img/store/store-7.jpg" class="size-full object-cover rounded-[20px]" />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../common/_footer.ejs') %>
+</body>
+</html>

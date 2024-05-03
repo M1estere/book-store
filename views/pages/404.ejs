@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Page not found</title>
+
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/output.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%- include('../common/_header.ejs') %>
+
+    <main>
+        <section id="general" class="h-[700px]">
+            <div class="mx-auto size-full flex flex-col justify-center items-center">
+                <span class="text-[var(--main-white)] text-[155px] uppercase font-bold">404</span>
+                <span class="text-[var(--main-white)] text-[75px] font-normal">Страница не найдена :(</span>
+            </div>
+        </section>
+    </main>
+    
+    <%- include('../common/_footer.ejs') %>
+</body>
+</html>
