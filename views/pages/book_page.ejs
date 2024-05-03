@@ -20,43 +20,26 @@
 
                 <div class="mt-[25px] w-full h-[630px] rounded-[35px] bg-[var(--main-white)] py-[50px] px-[90px] flex flex-row justify-between">
                     <div class="w-[240px] h-[380px]">
-                        <img src="/public/img/books/dorian_gray.jpg" class="object-cover size-full" />
+                        <img src="<%= book.image_path %>" class="object-cover size-full" />
                     </div>
 
                     <div class="w-[63%] flex flex-col justify-between items-start">
                         <div class="flex flex-col gap-[15px]">
-                            <span class="capitalize font-bold text-4xl tracking-wide text-[var(--main-black)]">Портрет Дориана Грея</span>
-                            <span class="capitalize font-normal text-[32px] tracking-wide text-[var(--main-black)]">Оскар Уайлд</span>
+                            <span class="capitalize font-bold text-4xl tracking-wide text-[var(--main-black)]"><%= book.title %></span>
+                            <span class="capitalize font-normal text-[32px] tracking-wide text-[var(--main-black)]"><%= book.author %></span>
                         </div>
 
                         <div class="flex flex-row flex-wrap gap-[10px]">
-                            <div class="bg-[var(--main-yellow)] px-[15px] py-[5px] rounded-full">
-                                <span class="capitalize text-[26px] text-[var(--main-white)] tracking-wide font-normal">Ужасы</span>
-                            </div>
-
-                            <div class="bg-[var(--main-yellow)] px-[15px] py-[5px] rounded-full">
-                                <span class="capitalize text-[26px] text-[var(--main-white)] tracking-wide font-normal">Фантастика</span>
-                            </div>
-
-                            <div class="bg-[var(--main-yellow)] px-[15px] py-[5px] rounded-full">
-                                <span class="capitalize text-[26px] text-[var(--main-white)] tracking-wide font-normal">Приключение</span>
-                            </div>
-
-                            <div class="bg-[var(--main-yellow)] px-[15px] py-[5px] rounded-full">
-                                <span class="capitalize text-[26px] text-[var(--main-white)] tracking-wide font-normal">Странное</span>
-                            </div>
-
-                            <div class="bg-[var(--main-yellow)] px-[15px] py-[5px] rounded-full">
-                                <span class="capitalize text-[26px] text-[var(--main-white)] tracking-wide font-normal">Непонятное</span>
-                            </div>
+                            <% book.genres_id.forEach(genre => { %>
+                                <div class="bg-[var(--main-yellow)] px-[15px] py-[5px] rounded-full">
+                                    <span class="capitalize text-[26px] text-[var(--main-white)] tracking-wide font-normal"><%= genre.title %></span>
+                                </div>
+                            <% }) %>
                         </div>
 
                         <div>
                             <span class="text-[var(--main-black)] font-normal text-[26px] leading-7 tracking-wide">
-                                Молодой и невероятно красивый Дориан Грей 
-                                приезжает в Лондон и попадает под влияние искателя приключений лорда Уоттона. 
-                                Он внушил юноше, что секрет успеха и счастья Дориана — в его красоте, 
-                                ведь она поможет получить все удовольствия мира.
+                                <%= book.description %>
                             </span>
                         </div>
 
