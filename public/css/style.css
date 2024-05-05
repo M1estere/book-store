@@ -28,3 +28,26 @@ body {
     margin: 0 auto;
     background-color: var(--main-black);
 }
+
+.underline-button {
+    @apply block relative cursor-pointer;
+}
+
+.underline-button::after {
+    @apply block box-border absolute bottom-[-3px] left-0 z-50 w-full h-[2px] bg-[var(--main-white)] scale-x-0;
+
+    content: '';
+    transition: .15s ease-in-out;
+}
+
+.underline-button:hover::after {
+    @apply scale-x-[1];
+}
+
+.brown-button {
+    @apply transition select-none cursor-pointer;
+}
+
+.brown-button:hover {
+    @apply scale-[1.05];
+}
