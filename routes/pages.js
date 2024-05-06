@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getBooks, getRandomBooks, getBook } = require('../database/books_operations.js');
+const { getBooks, getRandomBooks, getBook, getAllGenres } = require('../database/books_operations.js');
 
 router.get(['/', '/index', '/home'], async function(req, res) {
     let books = await getRandomBooks(5);
@@ -34,10 +34,12 @@ router.get(['/books', '/catalogue', '/catalog'], async function(req, res) {
     let booksFunction = await getBooks();
     let books = booksFunction.books;
     let recommendedBooks = await getRandomBooks(4);
+    let genres = await getAllGenres();
 
     res.status(200).render('pages/catalogue.ejs', {
         books: books,
-        recommended_books: recommendedBooks
+        recommended_books: recommendedBooks,
+        genres: genres.genres
     });
 });
 

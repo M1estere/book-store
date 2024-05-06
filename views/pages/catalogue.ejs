@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Catalogue</title>
+    <title>Каталог</title>
 
     <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="/public/css/output.css" rel="stylesheet" type="text/css">
@@ -23,57 +23,15 @@
                     <div class="w-[19.5%] h-fit flex flex-col gap-[25px] justify-start border-r-2 border-r-[var(--main-white)]">
                         <div class="flex flex-col">
                             <span class="capitalize tracking-wide text-[30px] text-[var(--main-white)] font-normal">Категории</span>
-                            <div class="flex flex-row gap-[10px] items-center">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
+
+                            <% genres.forEach(genre => { %>
+                                <div class="flex flex-row gap-[10px] items-center">
+                                    <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
+                                    </div>
+    
+                                    <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide"><%= genre.title %></span>
                                 </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">Приключения</span>
-                            </div>
-
-                            <div class="flex flex-row gap-[10px] items-center">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
-                                </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">Мистика</span>
-                            </div>
-
-                            <div class="flex flex-row gap-[10px] items-center">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
-                                </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">Детектив</span>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col">
-                            <span class="capitalize tracking-wide text-[30px] text-[var(--main-white)] font-normal leading-9">Возрастное ограничение</span>
-                            <div class="flex flex-row gap-[10px] items-center mt-[10px]">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
-                                </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">18+</span>
-                            </div>
-
-                            <div class="flex flex-row gap-[10px] items-center">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
-                                </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">16+</span>
-                            </div>
-
-                            <div class="flex flex-row gap-[10px] items-center">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
-                                </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">12+</span>
-                            </div>
-
-                            <div class="flex flex-row gap-[10px] items-center">
-                                <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
-                                </div>
-
-                                <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide">6+</span>
-                            </div>
+                            <% }) %>
                         </div>
                     </div>
     
@@ -94,7 +52,7 @@
                                     </div>
                                 </div>
                         
-                                <div class="w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                <div class="w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px] brown-button">
                                     <span class="capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">купить</span>
                                 </div>
                             </div>
@@ -136,7 +94,7 @@
                                              </div>
                                          </div>
                                  
-                                         <div class="w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px]">
+                                         <div class="w-[175px] h-[52px] bg-[var(--main-dark-brown)] flex flex-row justify-center items-center rounded-[30px] gap-[15px] brown-button">
                                              <span class="capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center">купить</span>
                                          </div>
                                     </div>

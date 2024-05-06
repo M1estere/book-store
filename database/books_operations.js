@@ -44,6 +44,25 @@ async function getGenres(genres_ids) {
     return result;
 }
 
+async function getAllGenres() {
+    const conn = await connection.getConnection();
+
+    let [result] = await conn.query('SELECT * FROM genres;');
+    console.log(result);
+    result.forEach(function (genre) {genre.title = capitalizeFirstLetter(genre.title);});
+
+    conn.release();
+    return {
+        code: 200,
+        genres: result
+    }
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 module.exports.getBooks = getBooks;
 module.exports.getRandomBooks = getRandomBooks;
 module.exports.getBook = getBook;
+module.exports.getAllGenres = getAllGenres;
