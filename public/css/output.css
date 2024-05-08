@@ -578,6 +578,10 @@ video {
   }
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
 }
@@ -793,6 +797,10 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.h-\[650px\] {
+  height: 650px;
 }
 
 .max-h-\[110px\] {
@@ -1275,6 +1283,18 @@ video {
   padding-top: 65px;
 }
 
+.pb-\[60px\] {
+  padding-bottom: 60px;
+}
+
+.pt-\[30px\] {
+  padding-top: 30px;
+}
+
+.pt-\[5px\] {
+  padding-top: 5px;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1435,6 +1455,11 @@ video {
 
 .text-\[var\(--main-white\)\] {
   color: var(--main-white);
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .placeholder-\[var\(--main-grey\)\]::-moz-placeholder {
