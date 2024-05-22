@@ -26,8 +26,7 @@ $('#login-action-button').on('click', async function login() {
         return;
     }
 
-    console.log('All right');
-    // window.location.replace('/home');
+    window.location.replace('/home');
 });
 
 $('#register-action-button').on('click', async function register() {
@@ -61,6 +60,5 @@ $('#register-action-button').on('click', async function register() {
         return;
     }
 
-    console.log('All right');
-    // window.location.replace('/home');
+    window.location.replace('/home');
 });

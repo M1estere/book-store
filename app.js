@@ -12,6 +12,7 @@ const pagesRouter = require('./routes/pages');
 const authRouter = require('./routes/auth_handle');
 
 const RedisStore = connectRedis.default;
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -21,12 +22,13 @@ const redisClient = redis.createClient({
 });
 redisClient.connect().catch(console.error);
 
+app.use(cookieParser('SESSION_SECRET'));
 app.use(
     session({
         store: new RedisStore( {client: redisClient} ),
         secret: 'SESSION_SECRET',
         resave: false,
-        saveUninitialized: false,
+        saveUninitialized: true,
         cookie: {
             secure: false,
             maxAge: 1000 * 60 * 30,
@@ -48,6 +50,9 @@ app.use('/request/auth', authRouter);
 
 app.use(function(req, res, next){
     console.log(req.originalUrl);
+
+    console.log('user');
+    console.log(req.session.user);
     next();
 });
 

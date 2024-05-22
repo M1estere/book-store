@@ -48,7 +48,6 @@ async function getAllGenres() {
     const conn = await connection.getConnection();
 
     let [result] = await conn.query('SELECT * FROM genres;');
-    console.log(result);
     result.forEach(function (genre) {genre.title = capitalizeFirstLetter(genre.title);});
 
     conn.release();

@@ -25,19 +25,22 @@
                             <span class="capitalize tracking-wide text-[30px] text-[var(--main-white)] font-normal">Категории</span>
 
                             <% genres.forEach(genre => { %>
-                                <div class="flex flex-row gap-[10px] items-center">
-                                    <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px]">
+                                <div class="genre-button flex flex-row gap-[10px] items-center select-none cursor-pointer">
+                                    <div class="size-[25px] bg-transparent border-[1px] border-[var(--main-white)] rounded-[5px] box-border p-[3px]">
+                                        <div class="inner-block hidden size-full bg-[var(--main-white)] rounded-[3px]"></div>
                                     </div>
-    
-                                    <span class="font-light text-[26px] text-[var(--main-white)] tracking-wide"><%= genre.title %></span>
+                                    
+                                    <input type="number" hidden value="<%= genre.genre_id %>" />
+                                    <span class="font-light text-[24px] text-[var(--main-white)] tracking-wide"><%= genre.title %></span>
                                 </div>
                             <% }) %>
                         </div>
                     </div>
     
-                    <div class="w-[78%] flex flex-row flex-wrap gap-[15px] justify-between">
+                    <div class="cards-container w-[78%] flex flex-row flex-wrap gap-[15px] justify-between">
                         <% books.forEach(book => { %>
-                            <div class="bg-[var(--main-white)] h-[575px] w-[360px] rounded-[30px] p-[40px] flex flex-col gap-[40px]">
+                            <div class="card bg-[var(--main-white)] h-[575px] w-[360px] rounded-[30px] p-[40px] flex flex-col gap-[40px]">
+                                <input type="text" id="genres" value="<%= book.genres_id %>" hidden />
                                 <div class="flex justify-center">
                                     <a href="book/<%= book.book_id %>"><img src="<%= book.image_path %>" class="object-cover h-[252px] w-[160px]" /></a>
                                 </div>
@@ -110,7 +113,10 @@
     <%- include('../common/_footer_light.ejs') %>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="/public/js/jq.js"></script>
     <script src="/public/js/swiper.js"></script>
+    <script src="/public/js/genres.js"></script>
 </body>
 
 </html>

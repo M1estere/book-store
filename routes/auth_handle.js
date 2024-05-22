@@ -22,10 +22,14 @@ router.post('/register', async function(req, res) {
     res.status(200).json({
         code: 200,
         user: {
-            id: getUserResult.user.id,
+            id: getUserResult.user.user_id,
             email: getUserResult.user.email
         }
     });
+
+    req.session.user = {
+        id: getUserResult.user.user_id,
+    };
 });
 
 router.post('/login', async function(req, res) {
@@ -42,13 +46,23 @@ router.post('/login', async function(req, res) {
         return;
     }
 
+    req.session.user = {
+        id: getUserResult.user.user_id,
+    };
+
     res.status(200).json({
         code: 200,
         user: {
-            id: getUserResult.user.id,
+            id: getUserResult.user.user_id,
             email: getUserResult.user.email
         }
     });
+});
+
+router.get('/logout', async function(req, res) {
+    delete req.session.user;
+
+    res.status(300).redirect('/auth');
 });
 
 module.exports = router;
