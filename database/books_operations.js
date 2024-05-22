@@ -11,6 +11,25 @@ async function getBooks() {
     }
 }
 
+async function getBooksById(ids) {
+    const conn = await connection.getConnection();
+    ids = [...ids];
+    if (ids.length < 1) {
+        conn.release();
+        return {
+            code: 200,
+            books: []
+        };
+    }
+    let [result] = await conn.query(`SELECT * FROM books WHERE book_id IN (${ids});`);
+
+    conn.release();
+    return {
+        code: 200,
+        books: result
+    }
+}
+
 async function getRandomBooks(amount) {
     let booksFunction = await getBooks();
     let books = booksFunction.books;
@@ -62,6 +81,7 @@ function capitalizeFirstLetter(string) {
 }
 
 module.exports.getBooks = getBooks;
+module.exports.getBooksById = getBooksById;
 module.exports.getRandomBooks = getRandomBooks;
 module.exports.getBook = getBook;
 module.exports.getAllGenres = getAllGenres;

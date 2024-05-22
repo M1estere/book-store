@@ -18,97 +18,39 @@
             <div class="w-[59%] mx-auto">
                 <div class="flex flex-row gap-[20px] items-center">
                     <span class="uppercase text-[var(--main-white)] text-[32px] font-bold">корзина</span>
-                    <span class="lowercase text-[var(--main-grey)] text-2xl font-normal">2 товара</span>
+                    <span class="amount-text lowercase text-[var(--main-grey)] text-2xl font-normal">2 товара</span>
                 </div>
 
-                <div class="min-h-[650px] flex flex-row justify-between mt-[50px]">
-                    <div class="h-full w-[62%] flex flex-col gap-[15px]">
-                        <div class="w-full h-[160px] bg-[var(--main-white)] rounded-[15px] flex flex-row justify-between p-[14px]">
+                <div class="min-h-[650px] flex flex-row justify-between mt-[50px] mb-[50px]">
+                    <div class="cards-container h-full w-[62%] flex flex-col gap-[15px]">
+                        <!-- <div class="card w-full h-[160px] bg-[var(--main-white)] rounded-[15px] flex flex-row justify-between p-[14px]">
                             <div class="flex flex-row gap-[15px]">
-                                <div class="w-[90px] h-[130px]">
-                                    <img src="/public/img/books/dorian_gray.jpg" class="object-cover size-full" />
+                                <div class="min-w-[90px] h-[130px]">
+                                    <img src="${block.image_path}" class="object-cover size-full" />
                                 </div>
-
-                                <div class="flex flex-col">
-                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">Портрет Дориана Грея</span>
-                                    <span class="font-normal text-[var(--main-black)] text-xl tracking-wide">Оскар Уайлд</span>
+            
+                                <div class="flex flex-col w-[57%]">
+                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">${block.title}</span>
+                                    <span class="font-normal text-[var(--main-black)] text-xl tracking-wide">${block.author}</span>
                                 </div>
                             </div>
-
-                            <div class="flex flex-row gap-[50px]">
+            
+                            <div class="flex flex-row gap-[50px] justify-between">
                                 <div>
                                     <div class="flex flex-row items-center justify-center gap-[15px] px-[13px] py-[3px] align-middle text-2xl text-[var(--main-black)] rounded-[3px] border-[1px] border-[var(--main-grey)]">
                                         <span class="text-center cursor-pointer">-</span>
-                                        <span class="text-center">1</span>
+                                        <span class="text-center">${getProductAmount(booksStorage, block.book_id)}</span>
                                         <span class="text-center cursor-pointer">+</span>
                                     </div>
                                 </div>
-
-                                <div class="flex flex-col justify-between items-end h-full">
-                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">750 ₽</span>
-
+            
+                                <div class="flex flex-col justify-between items-end h-full bg-red-600">
+                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">${block.price} ₽</span>
+            
                                     <div class="rounded-full size-[25px] bg-red-600"></div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="w-full h-[160px] bg-[var(--main-white)] rounded-[15px] flex flex-row justify-between p-[14px]">
-                            <div class="flex flex-row gap-[15px]">
-                                <div class="w-[90px] h-[130px]">
-                                    <img src="/public/img/books/1984.jpg" class="object-cover size-full" />
-                                </div>
-
-                                <div class="flex flex-col">
-                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">1984</span>
-                                    <span class="font-normal text-[var(--main-black)] text-xl tracking-wide">Джордж Оруэлл</span>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-row gap-[50px]">
-                                <div>
-                                    <div class="flex flex-row items-center justify-center gap-[15px] px-[13px] py-[3px] align-middle text-2xl text-[var(--main-black)] rounded-[3px] border-[1px] border-[var(--main-grey)]">
-                                        <span class="text-center cursor-pointer">-</span>
-                                        <span class="text-center">1</span>
-                                        <span class="text-center cursor-pointer">+</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-col justify-between items-end h-full">
-                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">900 ₽</span>
-
-                                    <div class="rounded-full size-[25px] bg-red-600"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="w-full h-[160px] bg-[var(--main-white)] rounded-[15px] flex flex-row justify-between p-[14px]">
-                            <div class="flex flex-row gap-[15px]">
-                                <div class="w-[90px] h-[130px]">
-                                    <img src="/public/img/books/sherlock_holmes.jpg" class="object-cover size-full" />
-                                </div>
-
-                                <div class="flex flex-col">
-                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">Приключения Шерлока Холмса</span>
-                                    <span class="font-normal text-[var(--main-black)] text-xl tracking-wide">Артур Конан Дойль</span>
-                                </div>
-                            </div>
-
-                            <div class="flex flex-row gap-[50px]">
-                                <div>
-                                    <div class="flex flex-row items-center justify-center gap-[15px] px-[13px] py-[3px] align-middle text-2xl text-[var(--main-black)] rounded-[3px] border-[1px] border-[var(--main-grey)]">
-                                        <span class="text-center cursor-pointer">-</span>
-                                        <span class="text-center">1</span>
-                                        <span class="text-center cursor-pointer">+</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex flex-col justify-between items-end h-full">
-                                    <span class="font-bold text-[var(--main-black)] text-xl tracking-wide">1500 ₽</span>
-
-                                    <div class="rounded-full size-[25px] bg-red-600"></div>
-                                </div>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="h-[270px] w-[30%] bg-[var(--main-grey)] p-[25px] flex flex-col justify-between items-end rounded-[5px]">
@@ -118,8 +60,8 @@
 
                         <div class="w-full flex flex-col gap-[5px] text-xl text-[var(--main-black)] font-normal tracking-wide">
                             <div class="flex flex-row justify-between">
-                                <span>3 товара</span>
-                                <span>1720 ₽</span>
+                                <span class="amount-text">3 товара</span>
+                                <span class="products-price-text">1720 ₽</span>
                             </div>
 
                             <div class="flex flex-row justify-between">
@@ -131,7 +73,7 @@
                         <div class="w-full text-xl text-[var(--main-black)] font-bold tracking-wide">
                             <div class="flex flex-row justify-between">
                                 <span>Итого</span>
-                                <span>1720 ₽</span>
+                                <span class="products-price-text">1720 ₽</span>
                             </div>
                         </div>
 
@@ -145,5 +87,8 @@
     </main>
 
     <%- include('../common/_footer_light.ejs') %>
+
+    <script src="/public/js/jq.js"></script>
+    <script src="/public/js/cart_handler.js"></script>
 </body>
 </html>
