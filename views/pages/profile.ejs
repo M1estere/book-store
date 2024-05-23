@@ -31,8 +31,8 @@
 
                     <div class="flex flex-col gap-[30px] mt-[15px]">
                         <div class="flex flex-col gap-[5px]">
-                            <span class="capitalize font-bold text-2xl text-[var(--main-white)] tracking-wide">Соловьев Илья Александрович</span>
-                            <span class="font-normal text-xl text-[var(--main-white)] tracking-wide">8 (905) 715-66-43 | 7156643@gmail.com</span>
+                            <span class="capitalize font-bold text-2xl text-[var(--main-white)] tracking-wide"><%= user.name %></span>
+                            <span class="font-normal text-xl text-[var(--main-white)] tracking-wide"><%= user.email %></span>
                         </div>
     
                         <div class="flex flex-col gap-[5px]">
@@ -49,48 +49,47 @@
 
                 <div id="orders-section" class="hidden">
                     <div class="flex flex-col gap-[30px] w-[51%]">
-                        <div class="w-full bg-[var(--main-white)] rounded-[15px] h-[280px] flex flex-col justify-between p-[25px]">
-                            <div class="flex flex-row justify-between">
-                                <div class="flex flex-col gap-[12px]">
-                                    <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide">Заказ №1 от 11.01.2023</span>
-                                    <div class="flex flex-col">
-                                        <span class="font-normal text-[var(--main-black)] text-[16px]">Оплата картой на сайте | Самовывоз</span>
-                                        <span class="font-normal text-[var(--main-black)] text-[16px]">ул. Кировоградская, д. 13А, ТРЦ "Колумбус", 3 Этаж</span>
+
+                        <% orders.forEach((order, index) => { %>
+                            <div class="w-full bg-[var(--main-white)] rounded-[15px] h-[280px] flex flex-col justify-between p-[25px] hover:-translate-x-1 hover:-translate-y-1 transition">
+                                <div class="flex flex-row justify-between">
+                                    <div class="flex flex-col gap-[12px]">
+                                        <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide">Заказ №<%= index+1 %> от <%= order.order_date.toLocaleDateString("en-GB") %></span>
+                                        <div class="flex flex-col">
+                                            <span class="font-normal text-[var(--main-black)] text-[16px]">Оплата картой на сайте | Самовывоз</span>
+                                            <span class="font-normal text-[var(--main-black)] text-[16px]">ул. Кировоградская, д. 13А, ТРЦ "Колумбус", 3 Этаж</span>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex flex-col justify-between items-end h-[90px] w-fit">
+                                        <div class="size-[25px] bg-green-600 rounded-full"></div>
+                                        <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide"><%= order.cost %> ₽</span>
                                     </div>
                                 </div>
-
-                                <div class="flex flex-col justify-between items-end h-[90px]">
-                                    <div class="size-[25px] bg-green-600 rounded-full"></div>
-                                    <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide">2500 ₽</span>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div class="swiper mainSwiper size-full">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide max-w-[70px] max-h-[110px]">
-                                            <img src="./assets/img/books/1984.jpg" class="size-full object-cover" />
-                                        </div>
-
-                                        <div class="swiper-slide max-w-[70px] max-h-[110px]">
-                                            <img src="./assets/img/books/dorian_gray.jpg" class="size-full object-cover" />
-                                        </div>
-
-                                        <div class="swiper-slide max-w-[70px] max-h-[110px]">
-                                            <img src="./assets/img/books/sherlock_holmes.jpg" class="size-full object-cover" />
+    
+                                <div>
+                                    <div class="swiper mainSwiper size-full">
+                                        <div class="swiper-wrapper">
+                                            <% order.books.forEach(book => { %>
+                                                <div class="swiper-slide max-w-[70px] max-h-[110px]">
+                                                    <img src="<%= book.image_path %>" class="size-full object-cover" />
+                                                </div>
+                                            <% }) %>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <% }) %>
                     </div>
                 </div>
                 
-                <a href="/request/auth/logout">
-                    <div class="mt-[35px] w-fit box-border h-[40px] px-[20px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-2xl font-normal text-[var(--main-white)] text-center brown-button">
-                        <span>Выйти</span>
-                    </div>
-                </a>
+                <div>
+                    <a href="/request/auth/logout" class="inline-block mt-[35px]">
+                        <div class="w-fit box-border h-[40px] px-[20px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-2xl font-normal text-[var(--main-white)] text-center brown-button">
+                            <span>Выйти</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
     </main>

@@ -1,7 +1,7 @@
-window.onload = () => {
+window.addEventListener('load', () => {
 
     let currentGenres = [];
-    let books = $('.card');
+    let books = $('.cards-container .card');
 
     $('.genre-button').on('click', function (e) {
         $(this).find('.inner-block').toggleClass('hidden');
@@ -20,7 +20,7 @@ window.onload = () => {
     function drawBookCards() {
         $('.cards-container').html('');
         for (let book of books) {
-            let genresId = $(book).find('input').val().split(' ');
+            let genresId = $(book).find('input[name="genres_id"]').val().split(' ');
             
             if (find(genresId, currentGenres) != -1) {
                 $('.cards-container').append(book);
@@ -38,4 +38,4 @@ window.onload = () => {
         return 1;
     }
 
-}
+});

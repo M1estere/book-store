@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const { getBooks, getRandomBooks, getBook, getAllGenres } = require('../database/books_operations.js');
+const { getUserById } = require('../database/users_operations.js');
+const { getUserOrders } = require('../database/orders_operations.js');
 
 function checkAuthorize(req, res, next) {
     if (!req.session.user) {
@@ -15,8 +17,6 @@ function checkAuthorize(req, res, next) {
 router.get(['/', '/index', '/home'], async function(req, res) {
     let books = await getRandomBooks(5);
     
-    console.log('user 2');
-    console.log(req.session.user);
     res.status(200).render('pages/index.ejs', {
         recommended_books: books
     });
@@ -58,8 +58,14 @@ router.get(['/about', '/info', '/aboutus'], function(req, res) {
     res.status(200).render('pages/about.ejs');
 });
 
-router.get('/profile', checkAuthorize, function(req, res) {
-    res.status(200).render('pages/profile.ejs');
+router.get('/profile', checkAuthorize, async function(req, res) {
+    let user = await getUserById(req.session.user.id);
+    let orders = await getUserOrders(req.session.user.id);
+
+    res.status(200).render('pages/profile.ejs', {
+        user: user.user,
+        orders: orders.orders
+    });
 });
 
 module.exports = router;

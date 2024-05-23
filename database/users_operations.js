@@ -1,5 +1,4 @@
 const connection = require('./db_connection');
-const mysql = require('mysql2/promise');
 
 async function checkEmailExists(email) {
     const conn = await connection.getConnection();

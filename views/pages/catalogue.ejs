@@ -41,7 +41,7 @@
                         <% books.forEach(book => { %>
                             <div class="card bg-[var(--main-white)] h-[575px] w-[360px] rounded-[30px] p-[40px] flex flex-col justify-between">
                                 <input type="text" name="id" value="<%= book.book_id %>" hidden />
-                                <input type="text" id="id" value="<%= book.genres_id %>" hidden />
+                                <input type="text" name="genres_id" value="<%= book.genres_id %>" hidden />
 
                                 <div class="flex justify-center">
                                     <a href="book/<%= book.book_id %>"><img src="<%= book.image_path %>" class="object-cover h-[252px] w-[160px]" /></a>

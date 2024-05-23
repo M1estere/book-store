@@ -1,4 +1,5 @@
-window.onload = () => {
+window.addEventListener('load', () => {
+    
     const profileSection = document.getElementById('profile-section');
     const ordersSection = document.getElementById('orders-section');
 
@@ -25,4 +26,5 @@ window.onload = () => {
         profileSection.classList.add('hidden');
         ordersSection.classList.remove('hidden');
     }
-}
+
+});

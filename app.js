@@ -11,6 +11,7 @@ const session = require('express-session');
 const pagesRouter = require('./routes/pages');
 const authRouter = require('./routes/auth_handle');
 const booksRouter = require('./routes/books');
+const reviewsRouter = require('./routes/reviews');
 
 const RedisStore = connectRedis.default;
 const cookieParser = require('cookie-parser');
@@ -49,12 +50,10 @@ app.use(bodyParser.urlencoded({
 app.use('/', pagesRouter);
 app.use('/request/auth', authRouter);
 app.use('/request/books', booksRouter);
+app.use('/reviews', reviewsRouter);
 
 app.use(function(req, res, next){
     console.log(req.originalUrl);
-
-    console.log('user');
-    console.log(req.session.user);
     next();
 });
 
@@ -64,5 +63,5 @@ app.all('*', (req, res) => {
 }); 
 
 app.listen(3000, function(){
-    console.log(`[x] SITE IS RUNNING [x]`);
+    console.log(`site active`);
 });

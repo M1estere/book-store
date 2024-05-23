@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
 
     async function getProducts() {
         let booksStorage = localStorage.getItem('shop_cart') ?? [];
@@ -178,4 +178,4 @@ window.onload = () => {
 
     getProducts();
 
-}
+});

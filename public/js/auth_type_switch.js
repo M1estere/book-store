@@ -1,4 +1,5 @@
-window.onload = () => {
+window.addEventListener('load', () => {
+    
     const loginForm = document.getElementById('login-form');
     const registrationForm = document.getElementById('registration-form');
 
@@ -25,4 +26,5 @@ window.onload = () => {
         loginForm.classList.add('hidden');
         registrationForm.classList.remove('hidden');
     }
-}
+
+});

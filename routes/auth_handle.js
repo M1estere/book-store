@@ -11,13 +11,24 @@ router.post('/register', async function(req, res) {
     let emailExists = await checkEmailExists(email);
 
     if (emailExists) {
-        console.log('User already exists');
+        res.status(200).json({
+            code: 400,
+            message: 'Пользователь существует'
+        });
         return;
     }
 
     let regUserResult = await registerUser(email, creds, password);
 
     let getUserResult = await getUserById(regUserResult.user_id);
+
+    if (getUserResult.code != 200) {
+        res.status(200).json({
+            code: 400,
+            message: 'Произошла ошибка'
+        });
+        return;
+    }
 
     res.status(200).json({
         code: 200,
@@ -38,10 +49,18 @@ router.post('/login', async function(req, res) {
 
     let getUserResult = await getUserByEmail(email);
 
+    if (getUserResult.code == 404) {
+        res.status(200).json({
+            code: 400,
+            message: 'Пользователя не существует'
+        });
+        return;
+    }
+
     if (getUserResult.user.password !== password) {
         res.status(200).json({
-            code: 400, // TODO: Change Code
-            message: 'Пароли не совпадают'
+            code: 400,
+            message: 'Неверный пароль'
         });
         return;
     }

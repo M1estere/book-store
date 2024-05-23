@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load', () => {
 
     $('.buy-button').on('click', function() {
         addToCart($(this).parents('.card').find('input[name="id"]').val());
@@ -23,7 +23,6 @@ window.onload = () => {
                     return item;
                 });
             } else {
-                console.log(parseInt($(`input[value='${book_id}']`).parents('.card').find('.price-text').text(), 10));
                 let bookObject = {
                     id: book_id,
                     amount: 1,
@@ -32,7 +31,6 @@ window.onload = () => {
                 cart.push(bookObject);
             }
         } else {
-            console.log(parseInt($(`input[value='${book_id}']`).parents('.card').find('.price-text').text(), 10));
             let bookObject = {
                 id: book_id,
                 amount: 1,
@@ -64,4 +62,4 @@ window.onload = () => {
 
     getBooksAmount();
 
-}
+});
