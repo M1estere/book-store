@@ -12,6 +12,7 @@ const pagesRouter = require('./routes/pages');
 const authRouter = require('./routes/auth_handle');
 const booksRouter = require('./routes/books');
 const reviewsRouter = require('./routes/reviews');
+const ordersRouter = require('./routes/orders');
 
 const RedisStore = connectRedis.default;
 const cookieParser = require('cookie-parser');
@@ -51,6 +52,7 @@ app.use('/', pagesRouter);
 app.use('/request/auth', authRouter);
 app.use('/request/books', booksRouter);
 app.use('/reviews', reviewsRouter);
+app.use('/orders', ordersRouter);
 
 app.use(function(req, res, next){
     console.log(req.originalUrl);

@@ -51,7 +51,7 @@
                     <div class="flex flex-col gap-[30px] w-[51%]">
 
                         <% orders.forEach((order, index) => { %>
-                            <div class="w-full bg-[var(--main-white)] rounded-[15px] h-[280px] flex flex-col justify-between p-[25px] hover:-translate-x-1 hover:-translate-y-1 transition">
+                            <div class="select-none w-full bg-[var(--main-white)] rounded-[15px] h-[280px] flex flex-col justify-between p-[25px] hover:-translate-x-1 hover:-translate-y-1 transition">
                                 <div class="flex flex-row justify-between">
                                     <div class="flex flex-col gap-[12px]">
                                         <span class="font-bold text-[var(--main-black)] text-2xl tracking-wide">Заказ №<%= index+1 %> от <%= order.order_date.toLocaleDateString("en-GB") %></span>
@@ -97,7 +97,9 @@
     <%- include('../common/_footer_light.ejs') %>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/public/js/jq.js"></script>
     <script src="/public/js/swiper.js"></script>
     <script src="/public/js/profile_switch.js"></script>
+    <script src="/public/js/cart.js"></script>
 </body>
 </html>

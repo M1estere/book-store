@@ -15,18 +15,20 @@ window.addEventListener('load', () => {
             ids.push(parseInt(item.id, 10));
         });
 
-        let response = await fetch('/request/books/get', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                ids: ids
-            }),
-        });
-
-        let result = await response.json();
-        drawCards(booksStorage, result.books);
+        if (ids.length > 0) {
+            let response = await fetch('/request/books/get', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    ids: ids
+                }),
+            });
+    
+            let result = await response.json();
+            drawCards(booksStorage, result.books);
+        }
     }
 
     function drawCards(booksStorage, books) {
@@ -123,6 +125,7 @@ window.addEventListener('load', () => {
         $('.amount-text').text(amount + ' товаров');
         $('.cart-amount').text(amount);
         getOrderPrice();
+        return amount;
     }
 
     function removeProduct(id) {
@@ -150,7 +153,7 @@ window.addEventListener('load', () => {
         });
 
         localStorage.setItem('shop_cart', JSON.stringify(cart));
-
+        checkCartButton();
         getProductsAmount();
     }
 
@@ -176,6 +179,55 @@ window.addEventListener('load', () => {
         getProductsAmount();
     }
 
+    function checkCartButton() {
+        $('#error-text').addClass('hidden');
+        let amount = getProductsAmount();
+        if (amount > 0) {
+            $('.checkout-button').removeClass('bg-gray-600');
+            $('.checkout-button').addClass('bg-[var(--main-dark-brown)]');
+            $('.checkout-button').addClass('brown-button');
+        } else {
+            $('.checkout-button').addClass('bg-gray-600');
+            $('.checkout-button').removeClass('bg-[var(--main-dark-brown)]');
+            $('.checkout-button').removeClass('brown-button');
+        }
+    }
+
+    $('.checkout-button').on('click', async function () {
+        if (getProductsAmount() < 1) return;
+
+        let booksStorage = localStorage.getItem('shop_cart');
+        booksStorage = JSON.parse(booksStorage);
+
+        let ids = [];
+        booksStorage.forEach(function (item) {
+            ids.push(parseInt(item.id, 10));
+        });
+
+        let response = await fetch('/orders/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ids: ids,
+                amount: getProductsAmount(),
+                cost: parseInt($('.products-price-text').text(), 10),
+                date: new Date().toISOString().slice(0, 10)
+            })
+        });
+
+        let result = await response.json();
+        if (result.code !== 200) {
+            $('#error-text').text(result.message).removeClass('hidden');
+            return;
+        }
+    
+        localStorage.setItem('shop_cart', JSON.stringify([]));
+        window.location.replace('/profile');
+    });
+
+    checkCartButton();
     getProducts();
 
 });

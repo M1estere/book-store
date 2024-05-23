@@ -1,6 +1,7 @@
 window.addEventListener('load', () => {
 
     $('input[type="button"]').attr('disabled', true);
+    $('input[type="button"]').removeClass('brown-button');
 
     $('form').find(':input').not('input[type="button"]').on('change', function () {
         $('.status-text').html('Отзыв сохранен').addClass('hidden');
@@ -9,11 +10,13 @@ window.addEventListener('load', () => {
         for (let field of fields) {
             if ($(field).val().trim().length < 1) {
                 $('input[type="button"]').attr('disabled', true);
+                $('input[type="button"]').removeClass('brown-button');
                 return;
             }
         }
 
         $('input[type="button"]').attr('disabled', false);
+        $('input[type="button"]').addClass('brown-button');
     });
 
     $('input[type="button"]').on('click', async function (e) {
@@ -45,6 +48,9 @@ window.addEventListener('load', () => {
         $('.status-text').html('Отзыв сохранен').removeClass('hidden');
         $('.status-text').removeClass('text-red-500');
         $('.status-text').addClass('text-green-500');
+
+        $('input[type="button"]').attr('disabled', true);
+        $('input[type="button"]').removeClass('brown-button');
 
         $('input[name="user_name"]').val('');
         $('input[name="user_phone"]').val('');

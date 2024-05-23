@@ -23,4 +23,36 @@ async function getUserOrders(id) {
     }
 }
 
+async function addOrder(userId, products, amount, cost, date) {
+    const conn = await connection.getConnection();
+    let [result] = await conn.query(`INSERT INTO orders (order_id, user_id, products, amount, cost, order_date) 
+                                     VALUES (NULL, ${userId}, '${products}', ${amount}, ${cost}, '${date}');`);
+
+    conn.release();
+    return {
+        code: 200,
+        order_id: result.insertId
+    };
+}
+
+async function getOrder(id) {
+    const conn = await connection.getConnection();
+    let [result] = await conn.query(`SELECT * FROM orders WHERE order_id = ${id};`);
+
+    conn.release();
+
+    if (result.length == 0) {
+        return {
+            code: 400
+        };
+    }
+
+    return {
+        code: 200,
+        review: result[0]
+    }
+}
+
 module.exports.getUserOrders = getUserOrders;
+module.exports.addOrder = addOrder;
+module.exports.getOrder = getOrder;
