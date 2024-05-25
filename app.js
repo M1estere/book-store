@@ -1,32 +1,31 @@
+// general modules
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
+// redis session setup
 const redis = require('redis');
 const connectRedis = require('connect-redis');
-
 const session = require('express-session');
+const RedisStore = connectRedis.default;
+const cookieParser = require('cookie-parser');
 
+// routers
 const pagesRouter = require('./routes/pages');
 const authRouter = require('./routes/auth_handle');
 const booksRouter = require('./routes/books');
 const reviewsRouter = require('./routes/reviews');
 const ordersRouter = require('./routes/orders');
-
 const adminRouter = require('./routes/admin');
-
-const RedisStore = connectRedis.default;
-const cookieParser = require('cookie-parser');
 
 const app = express();
 
+// redis session init
 const redisClient = redis.createClient({
     port: 6379,
     host: 'localhost'
 });
 redisClient.connect().catch(console.error);
-
 app.use(cookieParser('SESSION_SECRET'));
 app.use(
     session({
@@ -61,7 +60,6 @@ app.use(function(req, res, next){
     console.log(req.originalUrl);
     next();
 });
-
 
 app.all('*', (req, res) => {
     res.status(404).render('pages/404');
