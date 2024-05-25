@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
         });
 
         if (ids.length > 0) {
-            let response = await fetch('/request/books/get', {
+            let response = await fetch('/books/get', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Админ - Товары</title>
+    
+    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/public/css/output.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <%- include('../../common/_admin_header.ejs'); %>
+
+    <h1 class="mt-[25px] ml-[100px] text-[var(--main-white)] text-3xl font-bold uppercase">Товары</h1>
+
+    <main>
+        <%- include('../../common/_admin_actions.ejs'); %>
+
+        <section id="content" class="w-full mt-[25px] flex flex-col items-center gap-[25px] mb-[150px]">
+            <div class="w-[75%]">
+                <div class="w-fit mx-auto">
+                    <span id="status-text" class="hidden text-xl font-normal uppercase text-green-500">КАРТОЧКА УСПЕШНО ДОБАВЛЕНА</span>
+                </div>
+    
+                <div id="add-section" class="hidden mx-auto w-[40%] mt-[25px] h-fit bg-[var(--main-white)] rounded-[25px] box-border p-[25px]">
+                    <div class="content flex flex-col items-center gap-[20px]">
+                        <span class="text-xl font-semibold text-[var(--main-black)] uppercase">Новый Товар</span>
+                        <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                            <span class="text-lg font-medium text-[var(--main-black)]">Название</span>
+                            <input name="title" type="text" class="w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Название товара..." required />
+                        </div>
+                        <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                            <span class="text-lg font-medium text-[var(--main-black)]">Автор</span>
+                            <input name="author" type="text" class="w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Имя автора..." required />
+                        </div>
+                        <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                            <span class="text-lg font-medium text-[var(--main-black)]">Жанры</span>
+                            <input name="genres" type="text" class="w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Жанры (id)..." required />
+                        </div>
+
+                        <div class="w-full flex flex-row gap-[15px] justify-between">
+                            <span class="text-lg font-medium text-[var(--main-black)]">Описание</span>
+                            <textarea name="description" class="w-[60%] rounded-[15px] bg-[var(--main-white)] resize-none font-normal border border-[var(--main-black)] p-[5px]" rows="7" placeholder="Описание товара..." required></textarea>
+                        </div>
+
+                        <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                            <span class="text-lg font-medium text-[var(--main-black)]">Изображение</span>
+                            <input name="image_path" type="text" class="w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Путь до изображения..." required />
+                        </div>
+
+                        <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                            <span class="text-lg font-medium text-[var(--main-black)]">Стоимость</span>
+                            <input name="price" type="number" class="w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Цена (руб)..." required />
+                        </div>
+
+                        <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Добавить" />
+                    </div>
+                </div>
+
+                <div id="edit-section" class="hidden mx-auto grid grid-cols-3 gap-[35px] w-full mt-[25px] h-fit">
+                    <% books.forEach(book => { %>
+                        <div class="content flex flex-col items-center gap-[20px] w-full p-[15px] box-border bg-[var(--main-white)] rounded-[25px] h-[600px]">
+                            <span class="name text-xl font-semibold text-[var(--main-black)] uppercase"><%= book.title %></span>
+                            <input name="id" type="number" required hidden value="<%= book.book_id %>" />
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Название</span>
+                                <input name="title" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Название товара..." value="<%= book.title %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Автор</span>
+                                <input name="author" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Имя автора..." value="<%= book.author %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Жанры</span>
+                                <input name="genres" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Жанры (id)..." value="<%= book.genres_id %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Описание</span>
+                                <textarea name="description" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] resize-none font-normal border border-[var(--main-black)] p-[5px]" rows="7" placeholder="Описание товара..." required><%= book.description %></textarea>
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Изображение</span>
+                                <input name="image_path" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Путь до изображения..." value="<%= book.image_path %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Стоимость</span>
+                                <input name="price" type="number" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Цена (руб)..." value="<%= book.price %>" required />
+                            </div>
+                            <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Сохранить" />
+                        </div>
+                    <% }) %>
+                </div>
+
+                <div id="delete-section" class="mx-auto grid grid-cols-3 gap-[35px] w-full mt-[25px] h-fit">
+                    <% books.forEach(book => { %>
+                        <div class="content flex flex-col items-center gap-[20px] w-full p-[15px] box-border bg-[var(--main-white)] rounded-[25px] h-[600px]">
+                            <span class="name text-xl font-semibold text-[var(--main-black)] uppercase"><%= book.title %></span>
+                            <input name="id" type="number" required hidden value="<%= book.book_id %>" />
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Название</span>
+                                <input name="title" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Название товара..." value="<%= book.title %>" required disabled />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Автор</span>
+                                <input name="author" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Имя автора..." value="<%= book.author %>" required disabled />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Жанры</span>
+                                <input name="genres" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Жанры (id)..." value="<%= book.genres_id %>" required disabled />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Описание</span>
+                                <textarea name="description" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] resize-none font-normal border border-[var(--main-black)] p-[5px]" rows="7" placeholder="Описание товара..." required disabled><%= book.description %></textarea>
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Изображение</span>
+                                <input name="image_path" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Путь до изображения..." value="<%= book.image_path %>" required disabled />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Стоимость</span>
+                                <input name="price" type="number" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Цена (руб)..." value="<%= book.price %>" required disabled />
+                            </div>
+                            <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Удалить" />
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/public/js/jq.js"></script>
+    <script src="/public/js/admin/section_switch.js"></script>
+    <script src="/public/js/admin/products.js"></script>
+</body>
+</html>

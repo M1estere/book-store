@@ -1,5 +1,16 @@
 const connection = require('./db_connection');
 
+async function getReviews() {
+    const conn = await connection.getConnection();
+    let [result] = await conn.query(`SELECT * FROM reviews;`);
+    
+    conn.release();
+    return {
+        code: 200,
+        reviews: result
+    };
+}
+
 async function addReview(name, phone, comment) {
     const conn = await connection.getConnection();
     let [result] = await conn.query(`INSERT INTO reviews (review_id, name, phone, comment) 
@@ -30,5 +41,6 @@ async function getReview(id) {
     }
 }
 
+module.exports.getReviews = getReviews;
 module.exports.addReview = addReview;
 module.exports.getReview = getReview;

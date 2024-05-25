@@ -30,6 +30,62 @@ async function getBooksById(ids) {
     }
 }
 
+async function addBook(title, author, genres, description, imagePath, price) {
+    const conn = await connection.getConnection();
+    try {
+        let [result] = await conn.query(`INSERT INTO books (title, author, description, genres_id, image_path, price) VALUES ('${title}', '${author}', '${genres}', '${description}', '${imagePath}', ${price});`);
+
+        conn.release();
+        return {
+            code: 200,
+            id: result.insertId
+        };
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500,
+            id: -1
+        };
+    }
+}
+
+async function deleteBook(id) {
+    const conn = await connection.getConnection();
+    try {
+        await conn.query(`DELETE FROM books WHERE book_id = ${id};`);
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500
+        };
+    }
+
+    conn.release();
+    return {
+        code: 200
+    }
+}
+
+async function editBookById(id, title, author, genres, description, imagePath, price) {
+    const conn = await connection.getConnection();
+    try {
+        await conn.query(`UPDATE books SET image_path = "${imagePath}", title = "${title}", author = "${author}", description = '${description}', genres_id = "${genres}", price = ${price}  WHERE book_id = ${id};`);
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500
+        };
+    }
+
+    conn.release();
+    return {
+        code: 200
+    }
+}
+
 async function getRandomBooks(amount) {
     let booksFunction = await getBooks();
     let books = booksFunction.books;
@@ -85,3 +141,6 @@ module.exports.getBooksById = getBooksById;
 module.exports.getRandomBooks = getRandomBooks;
 module.exports.getBook = getBook;
 module.exports.getAllGenres = getAllGenres;
+module.exports.editBookById = editBookById;
+module.exports.addBook = addBook;
+module.exports.deleteBook = deleteBook;

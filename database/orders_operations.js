@@ -1,5 +1,16 @@
 const connection = require('./db_connection');
 
+async function getOrders() {
+    const conn = await connection.getConnection();
+    let [result] = await conn.query(`SELECT * FROM orders;`);
+
+    conn.release();
+    return {
+        code: 200,
+        orders: result
+    }
+}
+
 async function getUserOrders(id) {
     const conn = await connection.getConnection();
     let [result] = await conn.query(`SELECT * FROM orders WHERE user_id = ${id};`);
@@ -53,6 +64,7 @@ async function getOrder(id) {
     }
 }
 
+module.exports.getOrders = getOrders;
 module.exports.getUserOrders = getUserOrders;
 module.exports.addOrder = addOrder;
 module.exports.getOrder = getOrder;

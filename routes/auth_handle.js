@@ -68,9 +68,9 @@ router.post('/login', async function(req, res) {
     req.session.user = {
         id: getUserResult.user.user_id,
     };
-
+    
     res.status(200).json({
-        code: 200,
+        code: getUserResult.user.user_id == 4 ? 201 : 200,
         user: {
             id: getUserResult.user.user_id,
             email: getUserResult.user.email

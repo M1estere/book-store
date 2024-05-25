@@ -1,5 +1,17 @@
 const connection = require('./db_connection');
 
+async function getUsers() {
+    const conn = await connection.getConnection();
+    let [result] = await conn.query(`SELECT * FROM users;`);
+
+    conn.release();
+
+    return {
+        code: 200,
+        users: result
+    };
+}
+
 async function checkEmailExists(email) {
     const conn = await connection.getConnection();
     let [result] = await conn.query(`SELECT * FROM users WHERE email = '${email}';`);
@@ -58,6 +70,7 @@ async function getUserByEmail(email) {
     };
 }
 
+module.exports.getUsers = getUsers;
 module.exports.checkEmailExists = checkEmailExists;
 module.exports.registerUser = registerUser;
 module.exports.getUserById = getUserById;
