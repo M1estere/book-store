@@ -24,7 +24,7 @@
                     <span id="status-text" class="hidden text-xl font-normal uppercase text-green-500">КАРТОЧКА УСПЕШНО ДОБАВЛЕНА</span>
                 </div>
     
-                <div id="add-section" class="hidden mx-auto w-[40%] mt-[25px] h-fit bg-[var(--main-white)] rounded-[25px] box-border p-[25px]">
+                <div id="add-section" class="mx-auto w-[40%] mt-[25px] h-fit bg-[var(--main-white)] rounded-[25px] box-border p-[25px]">
                     <div class="content flex flex-col items-center gap-[20px]">
                         <span class="text-xl font-semibold text-[var(--main-black)] uppercase">Новый Товар</span>
                         <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
@@ -93,7 +93,7 @@
                     <% }) %>
                 </div>
 
-                <div id="delete-section" class="mx-auto grid grid-cols-3 gap-[35px] w-full mt-[25px] h-fit">
+                <div id="delete-section" class="hidden mx-auto grid grid-cols-3 gap-[35px] w-full mt-[25px] h-fit">
                     <% books.forEach(book => { %>
                         <div class="content flex flex-col items-center gap-[20px] w-full p-[15px] box-border bg-[var(--main-white)] rounded-[25px] h-[600px]">
                             <span class="name text-xl font-semibold text-[var(--main-black)] uppercase"><%= book.title %></span>
