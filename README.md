@@ -1,5 +1,5 @@
 # BOOK BUYER DUDE
-## Website created as the university project\ 
+## Website created as the university project
 
 Tech Stack: ejs, tailwind, node.js, mysql, redis
 
