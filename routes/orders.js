@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { addOrder, getOrder } = require('../database/orders_operations');
+const { addOrder, getOrder, deleteOrder } = require('../database/orders_operations');
 
 router.post('/add', async function(req, res) {
     let userId = req.session.user.id;
@@ -24,6 +24,17 @@ router.post('/add', async function(req, res) {
     res.status(200).json({
         code: 200,
         order: order.order_id
+    });
+});
+
+router.delete('/delete', async function (req, res) {
+    let id = req.body.id;
+
+    let result = await deleteOrder(id);
+
+    res.status(200).json({
+        code: 200,
+        message: result.code == 200 ? `Заказ ${id} успешно удален` : 'Произошла ошибка при удалении'
     });
 });
 

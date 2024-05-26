@@ -18,7 +18,47 @@
     <main>
         <%- include('../../common/_admin_actions.ejs'); %>
 
+        <section id="content" class="w-full mt-[25px] flex flex-col items-center gap-[25px] mb-[150px]">
+            <div class="w-[75%]">
+                <div class="w-fit mx-auto">
+                    <span id="status-text" class="hidden text-xl font-normal uppercase text-green-500">КАРТОЧКА УСПЕШНО ДОБАВЛЕНА</span>
+                </div>
 
+                <div id="delete-section" class="mx-auto grid grid-cols-3 gap-[35px] w-full mt-[25px] h-fit">
+                    <% orders.forEach(order => { %>
+                        <div class="content flex flex-col items-center gap-[20px] w-full p-[15px] box-border bg-[var(--main-white)] rounded-[25px] h-fit">
+                            <span class="name text-xl font-semibold text-[var(--main-black)] uppercase"><%= order.order_id %></span>
+                            <input name="id" type="number" required hidden value="<%= order.order_id %>" />
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">ID пользователя</span>
+                                <input name="user_id" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="ID пользователя..." value="<%= order.user_id %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Позиции</span>
+                                <input name="products" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Товары..." value="<%= order.products %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Количество</span>
+                                <input name="amount" type="number" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Количество..." value="<%= order.amount %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Стоимость</span>
+                                <input name="cost" type="number" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Стоимость..." value="<%= order.cost %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Дата заказа</span>
+                                <input name="order_date" type="date" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Дата заказа..." value="<%= new Date(order.order_date).toISOString().slice(0, 10) %>" required />
+                            </div>
+                            <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Удалить" />
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <script src="/public/js/jq.js"></script>
+    <script src="/public/js/admin/section_switch.js"></script>
+    <script src="/public/js/admin/orders.js"></script>
 </body>
 </html>

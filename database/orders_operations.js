@@ -64,7 +64,26 @@ async function getOrder(id) {
     }
 }
 
+async function deleteOrder(id) {
+    const conn = await connection.getConnection();
+    try {
+        await conn.query(`DELETE FROM orders WHERE order_id = ${id};`);
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500
+        };
+    }
+
+    conn.release();
+    return {
+        code: 200
+    }
+}
+
 module.exports.getOrders = getOrders;
 module.exports.getUserOrders = getUserOrders;
 module.exports.addOrder = addOrder;
 module.exports.getOrder = getOrder;
+module.exports.deleteOrder = deleteOrder;
