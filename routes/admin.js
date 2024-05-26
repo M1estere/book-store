@@ -6,7 +6,16 @@ const { getReviews } = require('../database/reviews_operations.js');
 const { getUsers } = require('../database/users_operations.js');
 const { getOrders } = require('../database/orders_operations.js');
 
-router.get(['/products', '/catalog', '/books', '/catalogue'], async function (req, res) {
+function checkAuthorize(req, res, next) {
+    if (!req.session.user || req.session.user.id !== 4) {
+        res.status(300).redirect('/auth');
+        return;
+    }
+
+    next();
+}
+
+router.get(['/products', '/catalog', '/books', '/catalogue'], checkAuthorize, async function (req, res) {
     let books = await getBooks();
 
     res.status(200).render('pages/admin/products.ejs', { 
@@ -14,7 +23,7 @@ router.get(['/products', '/catalog', '/books', '/catalogue'], async function (re
     });
 });
 
-router.get('/reviews', async function (req, res) {
+router.get('/reviews', checkAuthorize, async function (req, res) {
     let reviews = await getReviews();
 
     res.status(200).render('pages/admin/reviews.ejs', {
@@ -22,7 +31,7 @@ router.get('/reviews', async function (req, res) {
     });
 });
 
-router.get('/users', async function (req, res) {
+router.get('/users', checkAuthorize, async function (req, res) {
     let users = await getUsers();
 
     res.status(200).render('pages/admin/users.ejs', {
@@ -30,7 +39,7 @@ router.get('/users', async function (req, res) {
     });
 });
 
-router.get('/orders', async function (req, res) {
+router.get('/orders', checkAuthorize, async function (req, res) {
     let orders = await getOrders();
 
     res.status(200).render('pages/admin/orders.ejs', {

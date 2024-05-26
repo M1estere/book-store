@@ -70,8 +70,46 @@ async function getUserByEmail(email) {
     };
 }
 
+async function editUserById(id, name, mail, password) {
+    const conn = await connection.getConnection();
+    try {
+        await conn.query(`UPDATE users SET name = '${name}', email = '${mail}', password = '${password}' WHERE user_id = ${id};`);
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500
+        };
+    }
+
+    conn.release();
+    return {
+        code: 200
+    }
+}
+
+async function deleteUser(id) {
+    const conn = await connection.getConnection();
+    try {
+        await conn.query(`DELETE FROM users WHERE user_id = ${id};`);
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500
+        };
+    }
+
+    conn.release();
+    return {
+        code: 200
+    }
+}
+
 module.exports.getUsers = getUsers;
 module.exports.checkEmailExists = checkEmailExists;
 module.exports.registerUser = registerUser;
 module.exports.getUserById = getUserById;
 module.exports.getUserByEmail = getUserByEmail;
+module.exports.editUserById = editUserById;
+module.exports.deleteUser = deleteUser;

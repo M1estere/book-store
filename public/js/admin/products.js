@@ -13,6 +13,8 @@ window.addEventListener('load', () => {
         // disable edit section inputs
         $('#edit-section').find(':input').attr('disabled', true);
         $('#edit-section').find('[type="button"]').removeClass('brown-button');
+
+        $('#delete-section').find(':input').not('[type="button"]').attr('disabled', true);
     }
 
     // double click handle
@@ -49,7 +51,8 @@ window.addEventListener('load', () => {
         });
     }
 
-    function disableDeleteFields() {
+    function disableFields() {
+        $('#edit-section').find(':input').attr('disabled', true);
         $('#delete-section').find(':input').not('[type="button"]').attr('disabled', true);
     }
     
@@ -127,12 +130,47 @@ window.addEventListener('load', () => {
                     </div>
                     <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Сохранить" />
                 `;
-    
+
                 $('#edit-section').append(card);
+
+                card = document.createElement('div');
+                card.classList.add('content', 'flex', 'flex-col', 'items-center', 'gap-[20px]', 'w-full', 'p-[15px]', 'box-border', 'bg-[var(--main-white)]', 'rounded-[25px]', 'h-[600px]')
+                card.innerHTML = `
+                    <span class="name text-xl font-semibold text-[var(--main-black)] uppercase">${title}</span>
+                    <input name="id" type="number" required hidden value="${insertedId}" />
+                    <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                        <span class="select-none text-lg font-medium text-[var(--main-black)]">Название</span>
+                        <input name="title" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Название товара..." value="${title}" required />
+                    </div>
+                    <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                        <span class="select-none text-lg font-medium text-[var(--main-black)]">Автор</span>
+                        <input name="author" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Имя автора..." value="${author}" required />
+                    </div>
+                    <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                        <span class="select-none text-lg font-medium text-[var(--main-black)]">Жанры</span>
+                        <input name="genres" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Жанры (id)..." value="${genres}" required />
+                    </div>
+                    <div class="w-full flex flex-row gap-[15px] justify-between">
+                        <span class="select-none text-lg font-medium text-[var(--main-black)]">Описание</span>
+                        <textarea name="description" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] resize-none font-normal border border-[var(--main-black)] p-[5px]" rows="7" placeholder="Описание товара..." required>${description}</textarea>
+                    </div>
+                    <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                        <span class="select-none text-lg font-medium text-[var(--main-black)]">Изображение</span>
+                        <input name="image_path" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Путь до изображения..." value="${imagePath}" required />
+                    </div>
+                    <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                        <span class="select-none text-lg font-medium text-[var(--main-black)]">Стоимость</span>
+                        <input name="price" type="number" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Цена (руб)..." value="${price}" required />
+                    </div>
+                    <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Удалить" />
+                `;
+
                 $('#delete-section').append(card);
 
+                inputStates();
                 addHandlers();
-                disableDeleteFields();
+                disableFields();
+                doubleClickHandle();
             }
         });
 

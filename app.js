@@ -14,6 +14,7 @@ const cookieParser = require('cookie-parser');
 const pagesRouter = require('./routes/pages');
 const authRouter = require('./routes/auth_handle');
 const booksRouter = require('./routes/books');
+const usersRouter = require('./routes/users');
 const reviewsRouter = require('./routes/reviews');
 const ordersRouter = require('./routes/orders');
 const adminRouter = require('./routes/admin');
@@ -54,6 +55,7 @@ app.use('/request/auth', authRouter);
 app.use('/books', booksRouter);
 app.use('/reviews', reviewsRouter);
 app.use('/orders', ordersRouter);
+app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
 
 app.use(function(req, res, next){

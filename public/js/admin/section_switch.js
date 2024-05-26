@@ -38,4 +38,25 @@ window.addEventListener('load', () => {
         $('#delete-section').removeClass('hidden');
     });
 
+    if ($('#add-section').length < 1) {
+        $('#add-button').remove();
+
+        $('#edit-button').addClass('bg-gray-500');
+        $('#edit-button').trigger('click');
+    }
+    
+    if ($('#edit-section').length < 1) {
+        $('#edit-button').remove();
+
+        $('#delete-button').addClass('bg-gray-500');
+        $('#delete-button').trigger('click');
+    }
+
+    if ($('#delete-section').length < 1) {
+        $('#delete-button').remove();
+
+        $('#add-button').addClass('bg-gray-500');
+        $('#add-button').trigger('click');
+    }
+
 });
