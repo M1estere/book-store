@@ -1,6 +1,5 @@
 window.addEventListener('load', () => {
 
-    doubleClickHandle();
     inputStates();
     initReset();
     addHandlers();
@@ -15,21 +14,6 @@ window.addEventListener('load', () => {
         $('#edit-section').find('[type="button"]').removeClass('brown-button');
 
         $('#delete-section').find(':input').not('[type="button"]').attr('disabled', true);
-    }
-
-    // double click handle
-    function doubleClickHandle() {
-        $('#edit-section').find('.content').on('dblclick', function (e) {
-            $('#status-text').addClass('hidden');
-            let firstInputElement = $(this).find(':input')[0];
-            if ($(firstInputElement).is('[disabled="disabled"]')) {
-                $(this).find(':input').attr('disabled', false);
-                $(this).find('[type="button"]').addClass('brown-button');
-            } else {
-                $(this).find(':input').attr('disabled', true);
-                $(this).find('[type="button"]').removeClass('brown-button');
-            }        
-        });
     }
 
     // input fields state to disable submit button
@@ -49,11 +33,6 @@ window.addEventListener('load', () => {
                 $(this).parents('.content').find('input[type="button"]').addClass('brown-button');
             }
         });
-    }
-
-    function disableFields() {
-        $('#edit-section').find(':input').attr('disabled', true);
-        $('#delete-section').find(':input').not('[type="button"]').attr('disabled', true);
     }
 
     function addHandlers() {

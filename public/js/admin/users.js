@@ -51,11 +51,6 @@ window.addEventListener('load', () => {
         });
     }
 
-    function disableFields() {
-        $('#edit-section').find(':input').attr('disabled', true);
-        $('#delete-section').find(':input').not('[type="button"]').attr('disabled', true);
-    }
-
     function addHandlers() {
         // ajax handling (edit)
         $('#edit-section').find('input[type="button"]').on('click', async function (e) {
@@ -114,7 +109,7 @@ window.addEventListener('load', () => {
             
             if (result.code === 200) {
                 // delete book card
-                $(`input[value=${id}]`).parents('.content').remove();
+                $(`input[name="id"][value=${id}]`).parents('.content').remove();
             }
         });
     }

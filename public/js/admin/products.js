@@ -242,7 +242,7 @@ window.addEventListener('load', () => {
             
             if (result.code === 200) {
                 // delete book card
-                $(`input[value=${id}]`).parents('.content').remove();
+                $(`input[name="id"][value=${id}]`).parents('.content').remove();
             }
         });
     }
