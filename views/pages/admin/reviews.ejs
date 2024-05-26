@@ -18,10 +18,39 @@
     <main>
         <%- include('../../common/_admin_actions.ejs'); %>
 
+        <section id="content" class="w-full mt-[25px] flex flex-col items-center gap-[25px] mb-[150px]">
+            <div class="w-[75%]">
+                <div class="w-fit mx-auto">
+                    <span id="status-text" class="hidden text-xl font-normal uppercase text-green-500">КАРТОЧКА УСПЕШНО ДОБАВЛЕНА</span>
+                </div>
 
+                <div id="delete-section" class="mx-auto grid grid-cols-3 gap-[35px] w-full mt-[25px] h-fit">
+                    <% reviews.forEach(review => { %>
+                        <div class="content flex flex-col items-center gap-[20px] w-full p-[15px] box-border bg-[var(--main-white)] rounded-[25px] h-fit">
+                            <span class="name text-xl font-semibold text-[var(--main-black)] uppercase"><%= review.review_id %></span>
+                            <input name="id" type="number" required hidden value="<%= review.review_id %>" />
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Имя пользователя</span>
+                                <input name="name" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="ID пользователя..." value="<%= review.name %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between h-[40px]">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Номер</span>
+                                <input name="phone" type="text" class="disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="..." value="<%= review.phone %>" required />
+                            </div>
+                            <div class="w-full flex flex-row gap-[15px] justify-between">
+                                <span class="select-none text-lg font-medium text-[var(--main-black)]">Текст</span>
+                                <textarea name="text" rows="3" class="resize-none disabled:border-[0px] w-[60%] rounded-[15px] bg-[var(--main-white)] font-normal border border-[var(--main-black)] p-[5px]" placeholder="Текст..." required><%= review.comment %></textarea>
+                            </div>
+                            <input class="w-[70%] h-[50px] bg-[var(--main-dark-brown)] rounded-[30px] capitalize text-xl font-normal text-[var(--main-white)] tracking-wider leading-none align-middle text-center brown-button disabled:bg-gray-500" type="button" value="Удалить" />
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="/public/js/jq.js"></script>
     <script src="/public/js/admin/section_switch.js"></script>
+    <script src="/public/js/admin/reviews.js"></script>
 </body>
 </html>

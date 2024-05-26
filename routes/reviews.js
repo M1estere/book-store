@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { addReview, getReview } = require('../database/reviews_operations');
+const { addReview, getReview, deleteReview } = require('../database/reviews_operations');
 
 router.post('/add', async function(req, res) {
     let name = req.body.name;
@@ -22,6 +22,17 @@ router.post('/add', async function(req, res) {
     res.status(200).json({
         code: 200,
         review: review.review_id
+    });
+});
+
+router.delete('/delete', async function(req, res) {
+    let id = req.body.id;
+
+    let result = await deleteReview(id);
+
+    res.status(200).json({
+        code: 200,
+        message: result.code == 200 ? `Отзыв ${id} успешно удален` : 'Произошла ошибка при удалении'
     });
 });
 

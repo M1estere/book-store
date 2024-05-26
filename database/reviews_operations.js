@@ -41,6 +41,25 @@ async function getReview(id) {
     }
 }
 
+async function deleteReview(id) {
+    const conn = await connection.getConnection();
+    try {
+        await conn.query(`DELETE FROM reviews WHERE review_id = ${id};`);
+    } catch (e) {
+        console.log(e);
+        conn.release();
+        return {
+            code: 500
+        };
+    }
+
+    conn.release();
+    return {
+        code: 200
+    }
+}
+
 module.exports.getReviews = getReviews;
 module.exports.addReview = addReview;
 module.exports.getReview = getReview;
+module.exports.deleteReview = deleteReview;
